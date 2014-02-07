@@ -7,6 +7,8 @@
 //
 
 #import "Quiz4AppDelegate.h"
+#import "Q4LeftController.h"
+#import "Q4RightController.h"
 
 @implementation Quiz4AppDelegate
 
@@ -14,6 +16,15 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    Q4LeftController *left = [[Q4LeftController alloc] init];
+    Q4RightController *right = [[Q4RightController alloc] init];
+    
+    UITabBarController *tb = [[UITabBarController alloc] init];
+    [tb setViewControllers:@[left, right]];
+    
+    [self.window setRootViewController:tb];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
